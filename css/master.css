@@ -1,0 +1,25 @@
+﻿#texto-rodape {
+    margin-right: 21px;
+    margin-left: 21px;  
+    float: left;
+}
+
+.container {
+    margin-top: 53px;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 970px; 
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+} 
+
+main {
+    margin-bottom: 53px;
+}

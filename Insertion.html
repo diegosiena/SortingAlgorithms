@@ -1,0 +1,36 @@
+﻿<h1>Insertion Sort</h1>
+<p>Insertion sort, ou ordenação por inserção, é um simples algoritmo de ordenação, eficiente quando aplicado a um pequeno número de elementos. Em termos gerais, ele percorre um vetor de elementos da esquerda para a direita e à medida que avança vai deixando os elementos mais à esquerda ordenados. O algoritmo de inserção funciona da mesma maneira com que muitas pessoas ordenam cartas em um jogo de baralho como o pôquer.</p>
+<img id="img-insertion" src="images/Insertion.gif" alt="Insertion Select" />
+<h3>Implementações</h3>
+<h6>Linguagem C</h6>
+<pre>
+    void insertionSort(int numeros[], int tam) {
+        int i, j, eleito;
+        for (i = 1; i < tam; i++){
+            eleito = numeros[i];
+            j = i - 1;
+            while ((j>=0) && (eleito < numeros[j])) {
+                numeros[j+1] = numeros[j];
+                j--;
+            }
+            numeros[j+1] = eleito;
+        }
+    }
+</pre>
+<h6>Pseudocódigo</h6>
+<pre>
+    FUNÇÃO INSERTION_SORT (A[], tamanho)
+        VARIÁVEIS      
+                i, ,j
+                eleito
+        PARA I <- 1 até (tamanho-1) faça
+                  eleito <- a[i];
+                           j <- i-1;
+                               enquanto ((j>=0) E (eleito < A[j])) FAÇA
+                          A[j+1]:= A[j];
+                          j:=j-1;
+                FIM_ENQUANTO
+                A[j+1] <- eleito;
+                          fim_para
+                          fim
+</pre>
