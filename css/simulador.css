@@ -1,3 +1,11 @@
 ﻿body
 {
 }
+
+#conteudo > div {
+    margin-bottom: 20px;
+}
+
+.mbl {
+    margin-bottom: 0px;
+}

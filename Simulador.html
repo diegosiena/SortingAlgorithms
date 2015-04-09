@@ -11,15 +11,6 @@
     <link href="css/simulador.css" rel="stylesheet">
 </head>
 <body>
-    <!--<nav class="navbar navbar-inverse navbar-embossed navbar-fixed-top" role="navigation">
-        <a class="navbar-brand" href="#">Algoritmos de Ordenação</a>
-
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Métodos</a></li>
-            <li><a href="#">Simulador</a></li>
-        </ul>
-    </nav>-->
-
     <nav class="navbar navbar-inverse navbar-embossed navbar-fixed-top" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
@@ -38,8 +29,41 @@
 
 
     <main id="conteudo" class="container">
+        <h1 class="col-xs-12">Simulador</h1>
 
-    </main>
+        <!--<div class="row">-->
+            <div class="col-xs-12 col-sm-6 col-md-3 ">
+                <select class="form-control select select-primary select-block mbl">
+                    <optgroup label="Métodos Simples">
+                        <option value="0">Insertion sort</option>
+                        <option value="1">Selection sort</option>
+                        <option value="2">Bubble sort</option>
+                        <option value="3">Comb sort</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 ">
+                <input id="select-tamanho" type="number" min="1" max="10" placeholder="Tamanho do Vetor" class="form-control">
+            </div>
+            <div class="col-xs-12 col-sm-3 col-md-2">
+                <label class="checkbox" for="chk-random">
+                    <input type="checkbox" value="" id="chk-random" data-toggle="checkbox" class="custom-checkbox"><span class="icons"><span class="icon-unchecked"></span><span class="icon-checked"></span></span>
+                    Random
+                </label>
+            </div>
+            <div class="col-xs-12 col-sm-3 col-md-2">
+                <label class="checkbox" for="chk-animacao">
+                    <input type="checkbox" value="" id="chk-animacao" data-toggle="checkbox" class="custom-checkbox"><span class="icons"><span class="icon-unchecked"></span><span class="icon-checked"></span></span>
+                    Animação
+                </label>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2">
+                <button class="btn btn-wide btn-primary">
+                    Simular
+                </button>
+            </div>
+            <!--</div>-->
+</main>
 
     <br />
 
@@ -50,5 +74,6 @@
     <script src="./flat-ui/js/vendor/jquery.min.js"></script>
     <script src="./flat-ui/js/flat-ui.min.js"></script>
     <script src="js/simulador.js"></script>
+    <script type="text/javascript">$("select").select2({ dropdownCssClass: 'dropdown-inverse' });</script>
 </body>
 </html>
