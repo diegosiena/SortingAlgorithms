@@ -9,3 +9,34 @@
 .mbl {
     margin-bottom: 0px;
 }
+
+.btn-wide {
+   min-width: 0px; 
+}
+
+.vetor {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.vetor li {
+    display: inline;
+    padding: 0;
+    text-align: center;
+    background-color: #1abc9c;
+    border: 1px solid white;
+    width: 10%;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.secundario {
+    opacity: 0.7;
+    font-weight: normal;
+}
+
+.secundario li {
+    background-color: #bdc3c7;
+}
