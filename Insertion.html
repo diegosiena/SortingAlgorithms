@@ -3,34 +3,54 @@
 <img id="img-insertion" src="images/Insertion.gif" alt="Insertion Select" />
 <h3>Implementações</h3>
 <h6>Linguagem C</h6>
-<pre>
-    void insertionSort(int numeros[], int tam) {
-        int i, j, eleito;
-        for (i = 1; i < tam; i++){
-            eleito = numeros[i];
-            j = i - 1;
-            while ((j>=0) && (eleito < numeros[j])) {
-                numeros[j+1] = numeros[j];
-                j--;
-            }
-            numeros[j+1] = eleito;
+<pre id="code-c">
+void insertionSort(int numeros[], int tam) {
+    int i, j, eleito;
+    for (i = 1; i < tam; i++){
+        eleito = numeros[i];
+        j = i - 1;
+        while ((j>=0) && (eleito < numeros[j])) {
+            numeros[j+1] = numeros[j];
+            j--;
         }
+        numeros[j+1] = eleito;
     }
+}
+</pre>
+<h6>Javascript</h6>
+<pre id="code-js">
+function insertionSort(array) {
+    var len = array.length,
+        value,
+        i,
+        j;
+    
+    for (i = 0; i < len; i++) {
+        value = array[i];
+        
+        for (j = i - 1; j > -1 && array[j] > value; j--) {
+            array[j + 1] = array[j];
+        }
+        array[j + 1] = value;
+    }
+    
+    return array;
+}
 </pre>
 <h6>Pseudocódigo</h6>
-<pre>
-    FUNÇÃO INSERTION_SORT (A[], tamanho)
-        VARIÁVEIS      
-                i, ,j
-                eleito
-        PARA I <- 1 até (tamanho-1) faça
-                  eleito <- a[i];
-                           j <- i-1;
-                               enquanto ((j>=0) E (eleito < A[j])) FAÇA
-                          A[j+1]:= A[j];
-                          j:=j-1;
-                FIM_ENQUANTO
-                A[j+1] <- eleito;
-                          fim_para
-                          fim
+<pre id="code-pseudo">
+FUNÇÃO INSERTION_SORT (A[], tamanho)
+    VARIÁVEIS      
+            i, ,j
+            eleito
+    PARA I <- 1 até (tamanho-1) faça
+                eleito <- a[i];
+                        j <- i-1;
+                            enquanto ((j>=0) E (eleito < A[j])) FAÇA
+                        A[j+1]:= A[j];
+                        j:=j-1;
+            FIM_ENQUANTO
+            A[j+1] <- eleito;
+    fim_para
+fim
 </pre>
