@@ -32,7 +32,7 @@
         <h1 class="col-xs-12">Simulador</h1>
         <div class="row col-xs-12">
             <div class="col-xs-12 col-sm-6 col-md-3 ">
-                <select class="form-control select select-primary select-block mbl">
+                <select id="cmb-metodo" class="form-control select select-primary select-block mbl">
                     <optgroup label="Métodos Simples">
                         <option value="0">Insertion sort</option>
                         <option value="1">Selection sort</option>
@@ -42,7 +42,7 @@
                 </select>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3 ">
-                <input id="txt-tamanho" type="number" min="2" max="10" placeholder="Tamanho do Vetor" class="form-control" value="5">
+                <input id="txt-tamanho" type="number" min="2" max="10" placeholder="Tamanho do Vetor" class="form-control" value="10">
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2">
                 <label class="checkbox" for="chk-random">
@@ -69,8 +69,8 @@
                     <div class="col-xs-12 panel-heading">
                         <h3 class="col-xs-12 panel-title">Vetor</h3>
                     </div>
-                    <div class="panel-body">
-                        <ul class="vetor">
+                    <div id="panel-vetor" class="panel-body">
+                        <ul class="col-xs-12 vetor">
                             <li id="vet0" class="col-xs-1">-</li>
                             <li id="vet1" class="col-xs-1">-</li>
                             <li id="vet2" class="col-xs-1">-</li>
@@ -91,7 +91,7 @@
                         <h3 class="col-xs-12 panel-title">Código</h3>
                     </div>
                     <div class="panel-body">
-                        Panel content
+                        Em Desenvolvimento...
                     </div>
                 </div>
             </div>

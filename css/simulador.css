@@ -17,7 +17,7 @@
 .vetor {
     list-style: none;
     padding-left: 0;
-    margin-top: 15px;
+    /*margin-top: 15px;*/
     margin-bottom: 10px;
 }
 
@@ -39,4 +39,8 @@
 
 .secundario li {
     background-color: #bdc3c7;
+}
+
+.panel-body {
+    padding-top: 50px;
 }
