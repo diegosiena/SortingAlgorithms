@@ -1,2 +1,53 @@
 ﻿<h1>Selection Sort</h1>
 <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+<h3>Implementações</h3>
+<h6>Linguagem C</h6>
+<pre id="code-c">
+void selection_sort(int num[], int tam) { 
+
+    int i, j, min, aux;
+    for (i = 0; i < (tam-1); i++) {
+
+        min = i;
+        for (j = (i+1); j < tam; j++) {
+
+            if(num[j] < num[min]) {
+                min = j;
+            }
+        }
+
+        if (i != min) {
+            aux = num[i];
+            num[i] = num[min];
+            num[min] = aux;
+        }
+    }
+}
+</pre>
+<h6>Javascript</h6>
+<pre id="code-js">
+function selectionSort(array) {
+
+    var len = array.length,
+        min;
+
+    for (i=0; i < len; i++){
+
+        min = i;
+        for (j=i+1; j < len; j++){
+
+            if (array[j] < array[min]) {
+                min = j;
+            }
+        }
+
+        if (i != min) {
+            var temp = array[i];
+            array[i] = array[min];
+            array[min] = temp;
+        }
+    }
+
+    return array;
+}
+</pre>

@@ -6,5 +6,5 @@ function MostraMetodo(metodo) {
     $("#conteudo").load(metodo + ".html");
     $("html, body").animate({
         scrollTop: 0
-    }, 1000);
+    }, 500);
 }

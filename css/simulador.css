@@ -48,3 +48,13 @@
 pre {
     font-size: 11px;
 }
+
+#modal-body-inputs {
+    padding: 30px;
+    border-radius: 0;
+}
+#modal-body-inputs input {
+    border-radius: 0;
+    width: 10%;
+    padding: 8px 4px;
+}

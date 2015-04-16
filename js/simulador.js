@@ -3,17 +3,32 @@ $(document).ready(function () {
         if (e.keyCode != 8 && e.keyCode != 9) {
             return false;
         }
-    })
+    });
+    
+    AtribuiKeydownNumerico();
 });
+
+function AtribuiKeydownNumerico() {
+    $(".numerico").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+            // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+            // Allow: home, end, left, right, down, up
+            (e.keyCode >= 35 && e.keyCode <= 40)) {
+            // let it happen, don't do anything
+            return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            return false;
+        }
+    });
+}
 
 function Simular() {
 
     $("#panel-vetor").html($('#panel-vetor ul:first'));
-
-    if ($('#chk-random').is( ":checked" ) == false) {
-        alert("Método para escolha dos números ainda em desenvolvimento! Selecione o método 'random' !");
-        return;
-    };
 
     if ($('#chk-animacao').is( ":checked" )) {
         alert("Animação ainda em desenvolvimento!");
@@ -24,19 +39,43 @@ function Simular() {
     //    alert("Este método ainda está em desenvolvimento!");
     //    return;
     //};
-
+    
     var tamanho = parseInt($("#txt-tamanho").val());
     var vetor = Array();
+    var i;
 
-    for (var i = 0; i < tamanho; i++) {
-        vetor[i] = Math.floor(Math.random() * 100);
-        $('.vetor li:eq(' + i.toString() + ')').html( vetor[i] );
-    };
+    if ($('#chk-random').is(":checked") == false) {
 
-    if ( $('#cmb-metodo').val() == 0 ) {
+        var inputs = '';
+        for (i = 0; i < tamanho; i++) {
+            inputs += '<input maxlength="2" type="text" class="col-xs-1 numerico form-control" />';
+        }
+        $("#modal-body-inputs").html(inputs + '');
+
+        AtribuiKeydownNumerico();
+
+        $('#modal-vetor').modal({
+            keyboard: false
+        });
+    } else {
+        for (i = 0; i < tamanho; i++) {
+            vetor[i] = Math.floor(Math.random() * 99);
+            $('.vetor li:eq(' + i.toString() + ')').html(vetor[i]);
+        };
+
+        ExecutaSimulacao(vetor);
+    }
+}
+
+function ConcluirModal() {
+    alert("ConcluirModal()");
+}
+
+function ExecutaSimulacao(vetor) {
+    if ($('#cmb-metodo').val() == 0) {
         insertionSort(vetor);
         carregaCodigo(0);
-    } else if ($('#cmb-metodo').val() == 1 ) {
+    } else if ($('#cmb-metodo').val() == 1) {
         selectionSort(vetor);
         carregaCodigo(1);
     } else if ($('#cmb-metodo').val() == 2) {
@@ -49,33 +88,7 @@ function Simular() {
 
     $("html, body").animate({
         scrollTop: $("#row-panels").position().top - 60
-    }, 1000);
-
-    // var p1 = $("#vet7").position().left;
-    // var p2 = $("#vet1").position().left;
-    // var range = p1 - p2;
-
-    // $("#vet1").animate({
-    //    top: "+=40"
-    // }, 1000);
-    // $("#vet7").animate({
-    //    top: "-=40"
-    // }, 1000);
-
-    // $("#vet1").animate({
-    //    left: "+=" + range.toString()
-    // }, 1000);
-    // $("#vet7").animate({
-    //    left: "-=" + range.toString()
-    // }, 1000);
-
-
-    // $("#vet1").animate({
-    //    top: "-=40"
-    // }, 1000);
-    // $("#vet7").animate({
-    //    top: "+=40"
-    // }, 1000);
+    }, 500);
 }
 
 function combSort(array) {
@@ -120,12 +133,6 @@ function selectionSort(array) {
 
     return array;
 }
-
-//function swap(items, firstIndex, secondIndex) {
-//    var temp = items[firstIndex];
-//    items[firstIndex] = items[secondIndex];
-//    items[secondIndex] = temp;
-//}
 
 function bubbleSort(array) {
 
@@ -202,7 +209,43 @@ $("#txt-tamanho").change(function () {
 });
 
 function carregaCodigo(i) {
-    var metodos = ["Insertion", "Select", "Bubble", "Comb"];
+    var metodos = ["Insertion", "Selection", "Bubble", "Comb"];
 
     $("#panel-codigo").load(metodos[i] + ".html" + " #code-js");
 }
+
+
+//Exemplo de Animação
+// var p1 = $("#vet7").position().left;
+// var p2 = $("#vet1").position().left;
+// var range = p1 - p2;
+
+// $("#vet1").animate({
+//    top: "+=40"
+// }, 1000);
+// $("#vet7").animate({
+//    top: "-=40"
+// }, 1000);
+
+// $("#vet1").animate({
+//    left: "+=" + range.toString()
+// }, 1000);
+// $("#vet7").animate({
+//    left: "-=" + range.toString()
+// }, 1000);
+
+
+// $("#vet1").animate({
+//    top: "-=40"
+// }, 1000);
+// $("#vet7").animate({
+//    top: "+=40"
+// }, 1000);
+
+
+
+//function swap(items, firstIndex, secondIndex) {
+//    var temp = items[firstIndex];
+//    items[firstIndex] = items[secondIndex];
+//    items[secondIndex] = temp;
+//}
